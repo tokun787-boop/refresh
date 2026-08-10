@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refresher - Cookie Refresher Roblox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .icon-wrapper {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 1px solid #222222;
+      background: #080808;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .icon-wrapper svg {
+      width: 28px;
+      height: 28px;
+      fill: #e0e0e0;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    p.subtitle {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: #555555;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .field-group {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #666666;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .input-box {
+      position: relative;
+      width: 100%;
+      background-color: #0a0a0a;
+      border: 1px solid #1c1c1c;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      padding: 4px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-size: 13px;
+      padding: 12px 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .copy-btn {
+      background: #141414;
+      border: 1px solid #262626;
+      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover { background: #222222; }
+
+    .copy-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: #888888;
+    }
+
+    .btn-refresh {
+      width: 100%;
+      height: 48px;
+      background-color: #ffffff;
+      color: #000000;
+      border: none;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: opacity 0.2s;
+    }
+
+    .btn-refresh:hover { opacity: 0.9; }
+
+    .btn-refresh:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .subtext {
+      font-size: 10px;
+      color: #444444;
+      margin-top: 24px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .status-msg {
+      font-size: 11px;
+      margin-top: 12px;
+      text-align: center;
+      min-height: 16px;
+    }
+
+    .status-msg.error { color: #ff4d4d; }
+    .status-msg.success { color: #4dff88; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="icon-wrapper">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2ZM10.5 6A1.5 1.5 0 1 1 9 7.5A1.5 1.5 0 0 1 10.5 6ZM6.5 12A1.5 1.5 0 1 1 5 13.5A1.5 1.5 0 0 1 6.5 12ZM10.5 16.5A1.5 1.5 0 1 1 9 18A1.5 1.5 0 0 1 10.5 16.5ZM14.5 13.5A1.5 1.5 0 1 1 13 15A1.5 1.5 0 0 1 14.5 13.5ZM17.5 9.5A1.5 1.5 0 1 1 16 11A1.5 1.5 0 0 1 17.5 9.5Z"/>
+      </svg>
+    </div>
+
+    <h1>REFRESHER</h1>
+    <p class="subtitle">COOKIE REFRESHER ROBLOX</p>
+
+    <div class="field-group">
+      <label for="cookieInput">COOKIE</label>
+      <div class="input-box">
+        <input 
+          type="text" 
+          id="cookieInput" 
+          placeholder="Masukkan Cookie Roblox..."
+          ondblclick="this.select()"
+        >
+        <button class="copy-btn" onclick="copyToClipboard()" title="Copy Cookie">
+          <svg viewBox="0 0 24 24">
+            <path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM19 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H8V7H19V21Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <button class="btn-refresh" id="refreshBtn" onclick="processRefresh()">REFRESH COOKIE</button>
+
+    <div id="status" class="status-msg"></div>
+
+    <p class="subtext">Double-click input or use copy button</p>
+  </div>
+
+  <script>
+    async function processRefresh() {
+      const input = document.getElementById('cookieInput');
+      const btn = document.getElementById('refreshBtn');
+      const status = document.getElementById('status');
+      const cookieVal = input.value.trim();
+
+      if (!cookieVal) {
+        status.className = 'status-msg error';
+        status.innerText = 'Harap masukkan cookie terlebih dahulu.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerText = 'PROCESSING...';
+      status.innerText = '';
+
+      try {
+        const res = await fetch('/api/refresh', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ cookie: cookieVal })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          input.value = data.refreshedCookie;
+          status.className = 'status-msg success';
+          status.innerText = 'Cookie berhasil diperbarui!';
+        } else {
+          status.className = 'status-msg error';
+          status.innerText = data.error || 'Gagal memperbarui cookie.';
+        }
+      } catch (err) {
+        status.className = 'status-msg error';
+        status.innerText = 'Terjadi kesalahan koneksi server.';
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'REFRESH COOKIE';
+      }
+    }
+
+    function copyToClipboard() {
+      const input = document.getElementById('cookieInput');
+      if (!input.value) return;
+
+      input.select();
+      navigator.clipboard.writeText(input.value);
+
+      const status = document.getElementById('status');
+      status.className = 'status-msg success';
+      status.innerText = 'Cookie berhasil disalin!';
+      setTimeout(() => status.innerText = '', 2000);
+    }
+  </script>
+</body>
+    </html>
+
